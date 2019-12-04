@@ -35,6 +35,26 @@ Will out put 10 random unicode code-points rom the Basic Multilingual Plane, fil
 ݥ
 ```
 
+Or you can get individual codepoints and them use them with other tools, for example Selenium Webdriver:
+
+```python
+from unicode_babel import tools, filters
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+browser = webdriver.Chrome()
+browser.get("https://www.google.com")
+
+data_genny = tools.CodePointGenerator()
+unusual_char = data_genny.get_random_codepoint(filters.filter_out_if_no_name)
+
+search_box = browser.find_element_by_name("q")
+search_box.send_keys(unusual_char + Keys.RETURN)
+
+```
+Assuming you have Chromedriver in your path, that should open Google and search for a random character.
+
+
 ### License:
 Copyright © 2019 Peter Houghton
 
