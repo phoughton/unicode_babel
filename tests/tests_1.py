@@ -1,5 +1,6 @@
 import unittest
 import sys
+sys.path.append("..")
 sys.path.append("../unicode_babel")
 from unicode_babel import tools, filters
 
