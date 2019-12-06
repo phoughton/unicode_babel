@@ -46,7 +46,8 @@ jobs:
             . venv/bin/activate
             pwd
             ls -l
-            python tests/tests_1.py
+
+            python -m unittest -v tests/tests_1.py
 
       - store_artifacts:
           path: test-reports
