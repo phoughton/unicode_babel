@@ -44,6 +44,8 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
+            pwd
+            ls -l
             python tests/tests_1.py
 
       - store_artifacts:
