@@ -47,7 +47,7 @@ jobs:
             pwd
             ls -l
 
-            python -m unittest -v tests/tests_1.py
+            python -m unittest discover -v tests
 
       - store_artifacts:
           path: test-reports
