@@ -6,7 +6,7 @@ It's ideal for use in your tests or tools, Allowing you to quickly identify bugs
 
 * Easy to use iterator for repeated tests
 * Unicode Planes 0 and 1 (...more coming soon)
-* Python 3.x
+* Python 3.6+
 * Free  to use and open source
 
 ## Getting started:
