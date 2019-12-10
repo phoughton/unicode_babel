@@ -26,7 +26,7 @@ for point in genny.random_codepoints(10, filters.filter_out_if_no_name)
     print(point)
 
 ```
-Will out put 10 random unicode code-points rom the Basic Multilingual Plane, filtered to ensure only valid named code-points are returned.:
+Will output 10 random unicode code-points from the Basic Multilingual Plane, filtered to ensure only valid named code-points are returned.:
 ```
 ᓆ
 ᗡ
