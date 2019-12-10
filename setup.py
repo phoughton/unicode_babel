@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="unicode_babel",
-    version="0.0.2",
+    version="0.0.3",
     author="Peter Houghton",
     author_email="pete@investigatingsoftware.co.uk",
     description="A tool for generating random characters",

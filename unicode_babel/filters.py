@@ -9,3 +9,9 @@ def filter_out_if_no_name(the_codepoint):
 
     return the_codepoint
 
+
+def filter_out_if_no_name_unless_latin_control_char(the_codepoint):
+    if ord(the_codepoint) <= 0x0FF:
+        return the_codepoint
+    else:
+        return filter_out_if_no_name(the_codepoint)
