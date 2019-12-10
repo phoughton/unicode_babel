@@ -11,7 +11,12 @@ It's ideal for use in your tests or tools, Allowing you to quickly identify bugs
 
 ## Getting started:
 
-This simple code:
+To install:
+```bash
+pip install unicode-babel
+```
+
+This code:
 ```python
 from unicode_babel import tools, filters
 
