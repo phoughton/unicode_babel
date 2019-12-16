@@ -64,6 +64,7 @@ jobs:
             chmod 700 ~/.pypirc
             echo "username: __token__" >> ~/.pypirc
             echo "password: $PYPI_LOGIN_TOKEN" >> ~/.pypirc
+            . venv/bin/activate
 
             python3 -m twine upload --skip-existing dist/*
 
