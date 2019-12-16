@@ -39,7 +39,6 @@ jobs:
             - ./venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
 
-      # run tests!
       - run:
           name: run_tests
           command: |
@@ -52,14 +51,12 @@ jobs:
       - store_artifacts:
           path: test-reports
           destination: test-reports
-  deploy:
-    requires:
-      - build
-    steps:
+
       - run:
         name: build_package
         command:
           python setup.py sdist bdist_wheel
+
       - run:
           name: upload_package
           command: |
