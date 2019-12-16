@@ -53,9 +53,9 @@ jobs:
           destination: test-reports
 
       - run:
-        name: build_package
-        command: |
-          python3 setup.py sdist bdist_wheel
+          name: build_package
+          command: |
+            python3 setup.py sdist bdist_wheel
 
       - run:
           name: upload_package
