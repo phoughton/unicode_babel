@@ -53,19 +53,20 @@ jobs:
           path: test-reports
           destination: test-reports
   deploy:
-    requires: build
-      steps:
-        - run:
-          name: build_package
+    requires:
+      - build
+    steps:
+      - run:
+        name: build_package
+        command:
+          python setup.py sdist bdist_wheel
+      - run:
+          name: upload_package
           command:
-            python setup.py sdist bdist_wheel
-        - run:
-            name: upload_package
-            command:
-              echo "[pypi]" > ~/.pypirc
-              chmod 700 ~/.pypirc
-              echo "username: __token__" >> ~/.pypirc
-              echo "password: $PYPI_LOGIN_TOKEN" >> ~/.pypirc
+            echo "[pypi]" > ~/.pypirc
+            chmod 700 ~/.pypirc
+            echo "username: __token__" >> ~/.pypirc
+            echo "password: $PYPI_LOGIN_TOKEN" >> ~/.pypirc
 
-              python -m twine upload --skip-existing dist/*
+            python -m twine upload --skip-existing dist/*
 
