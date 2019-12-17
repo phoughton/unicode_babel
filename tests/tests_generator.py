@@ -29,11 +29,25 @@ class TestFilters(unittest.TestCase):
             self.assertTrue(ord(gen_char) <= 0x1FFFF, f"The codepoint was: {hex(ord(gen_char))} in try: {tries}")
             self.assertTrue(ord(gen_char) >= 0x10000, f"The codepoint was: {hex(ord(gen_char))} in try: {tries}")
 
-    def test_get_codepoint_no_filter_planes_1_and_2_check_in_range(self):
+    def test_get_codepoint_no_filter_plane_2_check_in_range(self):
+        genny = tools.CodePointGenerator([2])
+        gen_char = genny.get_random_codepoint()
+        for tries in range(100):
+            self.assertTrue(ord(gen_char) <= 0x2FFFF, f"The codepoint was: {hex(ord(gen_char))} in try: {tries}")
+            self.assertTrue(ord(gen_char) >= 0x20000, f"The codepoint was: {hex(ord(gen_char))} in try: {tries}")
+
+    def test_get_codepoint_no_filter_planes_0_and_1_check_in_range(self):
         genny = tools.CodePointGenerator([0, 1])
         gen_char = genny.get_random_codepoint()
         for tries in range(100):
             self.assertTrue(ord(gen_char) <= 0x1FFFF, f"The codepoint was: {hex(ord(gen_char))} in try: {tries}")
+            self.assertTrue(ord(gen_char) >= 0x0000, f"The codepoint was: {hex(ord(gen_char))} in try: {tries}")
+
+    def test_get_codepoint_no_filter_planes_0_and_1_and_2_check_in_range(self):
+        genny = tools.CodePointGenerator([0, 1, 2])
+        gen_char = genny.get_random_codepoint()
+        for tries in range(100):
+            self.assertTrue(ord(gen_char) <= 0x2FFFF, f"The codepoint was: {hex(ord(gen_char))} in try: {tries}")
             self.assertTrue(ord(gen_char) >= 0x0000, f"The codepoint was: {hex(ord(gen_char))} in try: {tries}")
 
 

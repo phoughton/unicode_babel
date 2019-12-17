@@ -5,7 +5,7 @@ Is a easy to use python package for generating random unicode characters.
 It's ideal for use in your tests or tools, Allowing you to quickly identify bugs and data processing issues.
 
 * Easy to use iterator for repeated tests
-* Unicode Planes 0 and 1 (...more coming soon)
+* Unicode Planes 0, 1 and 3
 * Python 3.6+
 * Free  to use and open source
 
