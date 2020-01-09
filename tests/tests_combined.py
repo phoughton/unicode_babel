@@ -15,24 +15,28 @@ class TestCombined(unittest.TestCase):
         self.assertEqual(1, len(gen_char), "filter out unnamed plane 1")
 
     def test_get_codepoint_filter_out_iterator_plane_0(self):
-        genny = tools.CodePointGenerator([0])
-        codepoint_list = []
-        for point in genny.random_codepoints(10, filters.filter_out_if_no_name):
-            codepoint_list.append(point)
-            self.assertEqual(1, len(point), "individual iteration item")
-
+        codepoint_list = self.build_codepoint_list([0], filters.filter_out_if_no_name, 10)
         self.assertEqual(10, len(codepoint_list), "iterator of 10")
-        print(codepoint_list)
 
     def test_get_codepoint_filter_out_iterator_planes_0_1(self):
-        genny = tools.CodePointGenerator([0, 1])
-        codepoint_list = []
-        for point in genny.random_codepoints(10, filters.filter_out_if_no_name):
-            codepoint_list.append(point)
-            self.assertEqual(1, len(point), "individual iteration item")
-
+        codepoint_list = self.build_codepoint_list([0, 1], filters.filter_out_if_no_name, 10)
         self.assertEqual(10, len(codepoint_list), "iterator of 10")
-        print(codepoint_list)
+
+    def test_get_codepoint_filter_out_iterator_planes_0_1_2(self):
+        codepoint_list = self.build_codepoint_list([0, 1, 2], filters.filter_out_if_no_name, 10)
+        self.assertEqual(10, len(codepoint_list), "iterator of 10")
+
+    def test_get_codepoint_filter_out_iterator_planes_1_2(self):
+        codepoint_list = self.build_codepoint_list([1, 2], filters.filter_out_if_no_name, 10)
+        self.assertEqual(10, len(codepoint_list), "iterator of 10")
+
+    @staticmethod
+    def build_codepoint_list(planes: list, codepoint_filter, expectation: int):
+        genny = tools.CodePointGenerator(planes)
+        codepoint_list = []
+        for point in genny.random_codepoints(10, codepoint_filter):
+            codepoint_list.append(point)
+        return codepoint_list
 
 
 if __name__ == '__main__':
