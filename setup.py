@@ -5,10 +5,10 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="unicode_babel",
-    version="0.1.2",
+    version="0.1.3",
     author="Peter Houghton",
     author_email="pete@investigatingsoftware.co.uk",
-    description="A tool for generating random characters",
+    description="A tool for generating random characters/code-points",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/phoughton/unicode_babel",

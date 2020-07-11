@@ -22,7 +22,7 @@ from unicode_babel import tools, filters
 
 genny = tools.CodePointGenerator()
 
-for point in genny.random_codepoints(10, filters.filter_out_if_no_name)
+for point in genny.random_codepoints(10, filters.filter_out_if_no_name):
     print(point)
 
 ```
@@ -40,7 +40,29 @@ Will output 10 random unicode code-points from the Basic Multilingual Plane, fil
 ݥ
 ```
 
-Or you can get individual codepoints and them use them with other tools, for example Selenium Webdriver:
+
+If you want to really put the cat among the pigeons try this code:
+```python
+from unicode_babel import *
+
+genny = tools.CodePointGenerator()
+
+for point in genny.random_codepoints(10, filters.filter_in_if_no_name):
+    print(point)
+
+```
+
+...it will fail badly, as the code-points filtered-in can not be encoded, the codepoints don't map to a 'character'.
+The error might look something like this:
+
+```dos
+Traceback (most recent call last):
+  File "tryout.py", line 6, in <module>
+    print(point)
+UnicodeEncodeError: 'utf-8' codec can't encode character '\ud8b4' in position 0: surrogates not allowed
+```
+
+Or you can get individual code-points and them use them with other tools, for example Selenium Webdriver:
 
 ```python
 from unicode_babel import tools, filters
@@ -61,7 +83,7 @@ Assuming you have Chromedriver in your path, that should open Google and search 
 
 
 ### License:
-Copyright © 2019 Peter Houghton
+Copyright © 2020 Peter Houghton
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
