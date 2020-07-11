@@ -39,7 +39,7 @@ Will output 10 random unicode code-points from the Basic Multilingual Plane, fil
 䔉
 ݥ
 ```
-
+As these are valid characters from valid code-points you can use these anywhere that clams to accept text.
 
 If you want to really put the cat among the pigeons try this code:
 ```python
@@ -61,6 +61,8 @@ Traceback (most recent call last):
     print(point)
 UnicodeEncodeError: 'utf-8' codec can't encode character '\ud8b4' in position 0: surrogates not allowed
 ```
+But this nonetheless might be useful in unit testing etc.
+
 
 Or you can get individual code-points and them use them with other tools, for example Selenium Webdriver:
 
