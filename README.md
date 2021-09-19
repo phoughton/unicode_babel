@@ -1,6 +1,6 @@
 # Unicode Babel
 
-Is a easy to use python package for generating random unicode code-points/characters.
+Unicode Babel is a easy to use python package for generating random unicode code-points/characters.
 
 It's ideal for use in your tests or tools, Allowing you to quickly identify bugs and data processing issues.
 
@@ -82,6 +82,13 @@ search_box.send_keys(unusual_char + Keys.RETURN)
 
 ```
 Assuming you have Chromedriver (Webdriver) in your path, that should open Google and search for a random character.
+
+
+### Testing
+
+If you have downloaded the code from GitHub and wish to run the unit tests:
+
+`python -m unittest discover -v tests`
 
 
 ### License:
