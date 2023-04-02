@@ -81,6 +81,7 @@ search_box = browser.find_element_by_name("q")
 search_box.send_keys(unusual_char + Keys.RETURN)
 
 ```
+
 Assuming you have Chromedriver (Webdriver) in your path, that should open Google and search for a random character.
 
 
